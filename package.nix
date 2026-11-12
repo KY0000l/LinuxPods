@@ -4,7 +4,7 @@
   cmake,
   pkg-config,
   openssl,
-  libpulse,
+  libpulseaudio,
   qt6,
 }:
 
@@ -32,7 +32,7 @@ stdenv.mkDerivation {
 
   buildInputs = [
     openssl
-    libpulse
+    libpulseaudio
     qt6.qtbase
     qt6.qtconnectivity # Qt6Bluetooth
   ];
