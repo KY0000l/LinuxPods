@@ -5,6 +5,7 @@
   pkg-config,
   openssl,
   libpulseaudio,
+  installShellFiles,
   qt6,
 }:
 
@@ -27,6 +28,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     cmake
     pkg-config
+    installShellFiles,
     qt6.wrapQtAppsHook
   ];
 
