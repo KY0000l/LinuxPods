@@ -28,7 +28,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     cmake
     pkg-config
-    installShellFiles,
+    installShellFiles
     qt6.wrapQtAppsHook
   ];
 
