@@ -6,6 +6,7 @@
   openssl,
   libpulseaudio,
   installShellFiles,
+  glib,
   qt6,
 }:
 
@@ -50,6 +51,11 @@ stdenv.mkDerivation {
       $out/share/dbus-1/services/io.github.Explor3Universe.LinuxPods.service \
       $out/lib/systemd/user/linuxpods-daemon.service \
       --replace-fail /usr/bin/linuxpods-daemon $out/bin/linuxpods-daemon
+
+    # The plasmoid shells out to gdbus, which isn't on plasmashell's PATH on NixOS
+    substituteInPlace \
+      $out/share/plasma/plasmoids/io.github.Explor3Universe.LinuxPods/contents/ui/DbusBackend.qml \
+      --replace-fail "gdbus call" "${lib.getExe' glib "gdbus"} call"
 
     moveToOutput share/plasma "$plasmoid"
   '';
