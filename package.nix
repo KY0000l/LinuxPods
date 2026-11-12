@@ -43,7 +43,7 @@ stdenv.mkDerivation {
   cmakeFlags = [ (lib.cmakeBool "LINUXPODS_BUILD_GUI" false) ];
 
   postInstall = ''
-    installManPage data/man/linuxpods-daemon.1 data/man/linuxpods.1
+    installManPage $src/data/man/linuxpods-daemon.1 $src/data/man/linuxpods.1
 
     # Upstream's unit files hardcode /usr/bin
     substituteInPlace \
