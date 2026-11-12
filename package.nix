@@ -3,9 +3,9 @@
   stdenv,
   cmake,
   pkg-config,
+  installShellFiles,
   openssl,
   libpulseaudio,
-  installShellFiles,
   glib,
   qt6,
 }:
